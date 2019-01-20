@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title><%=user_data.basic.name%></title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <!--Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
+          rel='stylesheet' type='text/css'>
+    <!-- Bootstrap CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- MDB -->
+    <link href="/stylesheets/mdb.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/stylesheets/resume.css" rel="stylesheet">
+
+    <link rel="icon" href="/images/favicon.png">
+
+
+</head>
+
+<body>
+
+<!-- FULL BODY WRAPPER -->
+<div class="wrapper">
+    <div class="row">
+
+        <!-- SIDEBAR CONTAINER -->
+        <div class="col-sm-12 col-md-4">
+            <div class="container sidebar-wrapper">
+
+                <!--profile container-->
+                <section class="jumbotron jumbotron-fluid jumbotron-section">
+                    <div class="container jumbotron-elements">
+
+                        <%if(user_data.basic.user_image && user_data.basic.user_image.length > 3){%>
+                        <img class="jumbotron-image" width="135" height="135"
+                             src="/uploads/users/<%=user_data.basic.user_image%>">
+                        <%}%>
+
+                        <h1 class="display-6 jumbotron-name"><%=user_data.basic.name%></h1>
+
+                        <p class="lead jumbotron-title"><%=user_data.basic.occupation%></p>
+                    </div>
+                </section>
+                <!--end of profile container-->
+
+                <!--contact area-->
+                <section class="container contact-section">
+                    <h2 class="new-title mb-0"><i class="fa fa-address-book-o"></i>&nbsp;&nbsp;CONTACT</h2>
+
+                    <div>
+                        <ul class="list-group all-contact-items">
+                            <% if(user_data.social.address.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <span><i
+                                        class="fa fa-map-marker fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.address%></span>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.phone.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <span><i class="fa fa-phone fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.phone%></span>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.email.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <span><i class="fa fa-envelope fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.email%></span>
+                            </li>
+                            <% } %>
+                        </ul>
+
+                        <ul class="list-group all-contact-items">
+                            <% if(user_data.social.website.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <a href="http://visualcv.me/<%=user_data.social.website%>" target="_blank"><i
+                                        class="fa fa-globe fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.website%></a>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.linkedin.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <a href="https://www.linkedin.com/in/<%=user_data.social.linkedin%>" target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.linkedin%></a>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.github.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <a href="https://github.com/<%=user_data.social.github%>" target="_blank"><i
+                                        class="fa fa-github fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.github%></a>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.skype.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <a href="skype:<%=user_data.social.skype%>" target="_blank"><i
+                                        class="fa fa-skype fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.skype%></a>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.facebook.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <a href="http://www.facebook.com/<%=user_data.social.facebook%>" target="_blank"><i
+                                        class="fa fa-facebook fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.facebook%></a>
+                            </li>
+                            <% } %>
+
+                            <% if(user_data.social.twitter.length > 0) { %>
+                            <li class="list-group-item contact-item">
+                                <a href="http://www.twitter.com/<%=user_data.social.twitter%>" target="_blank"><i
+                                        class="fa fa-twitter fa-fw"></i>&nbsp;&nbsp;<%=user_data.social.twitter%></a>
+                            </li>
+                            <% } %>
+
+                        </ul>
+                    </div>
+
+                </section>
+                <!--end of contact area-->
+
+                <hr>
+
+
+                <%var colors = ['aqua-gradient', 'purple-gradient', 'peach-gradient', 'blue-gradient']%>
+                <%var text_colors = ['#ff4444', '#4285F4', '#00C851']%>
+
+                <!-- Technical Skills section -->
+                <% if(user_data.technical.length > 0){ %>
+                <section class="container skills-section">
+                    <h2 class="new-title"><i class="fa fa-cloud"></i>&nbsp;&nbsp;Technical Skills</h2>
+
+                    <% for(var i=0; i<user_data.technical.length; i++){ %>
+                        <div class="skill-items-wrapper">
+                            <div class="skill-item">
+                                <label style="margin-bottom: 0;"><%=user_data.technical[i].title%></label>
+                                <div class="progress mb-2" style="height: 15px">
+                                    <div class="progress-bar <%=colors[i%colors.length]%> h-100"
+                                         role="progressbar" style="width:<%=user_data.technical[i].percentage%>%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <hr>
+                </section>
+                <% } %>
+                <!--end of technical skills area-->
+
+                <!-- Qualities Skills section -->
+                <% if(user_data.qualities.length > 0){ %>
+                <section class="container skills-section">
+                    <h2 class="new-title"><i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;Personal Qualities</h2>
+
+                    <% for(var i=0; i<user_data.qualities.length; i++){ %>
+                        <div class="skill-items-wrapper">
+                            <div class="skill-item">
+                                <label style="margin-bottom: 0;"><%=user_data.qualities[i].title%></label>
+                                <div class="progress mb-2" style="height: 15px">
+                                    <div class="progress-bar <%=colors[i%colors.length]%> h-100"
+                                         role="progressbar" style="width:<%=user_data.qualities[i].percentage%>%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <hr>
+                </section>
+                <% } %>
+                <!--end of technical skills area-->
+
+                <!-- Languages section -->
+                <% if(user_data.languages.length > 0){ %>
+                <section class="container skills-section">
+                    <h2 class="new-title"><i class="fa fa-language"></i>&nbsp;&nbsp;Languages</h2>
+
+                    <% for(var i=0; i<user_data.languages.length; i++){ %>
+                        <div class="skill-items-wrapper">
+                            <div class="skill-item input-group mb-3">
+
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label><%=user_data.languages[i].title%></label>
+                                    </div>
+                                    <div class="col-sm-3 col-sm-9">
+                                        <div class="star-rating">
+                                            <div class="back-stars">
+                                                <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+                                                <div class="front-stars" style="width: <%=user_data.languages[i].percentage%>%;
+                                    color: <%=text_colors[i%text_colors.length]%>; text-shadow: -1px 0 <%=text_colors[i%text_colors.length]%>, 0 1px <%=text_colors[i%text_colors.length]%>, 1px 0 <%=text_colors[i%text_colors.length]%>, 0 -1px <%=text_colors[i%text_colors.length]%>;">
+                                                    <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <hr>
+
+                </section>
+                <% } %>
+                <!--end of technical skills area-->
+
+
+                <!-- References section -->
+                <section class="container references-section">
+                    <h2 class="new-title"><i class="fa fa-bookmark-o"></i>&nbsp;&nbsp;REFERENCES</h2>
+                    <div class="reference-text">
+                        <h6>Available upon request</h6>
+                    </div>
+                </section>
+                <!--end of references area-->
+
+            </div>
+        </div>
+        <!--end of sidebar container-->
+
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="col-sm-12 col-md-8">
+            <div class="main-wrapper">
+
+                <!-- Profile Section -->
+                <% if(user_data.statement.length > 0){ %>
+                <section class="container profile-section" id="id_profile_main">
+                    <h2 class="new-title"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;CAREER PROFILE</h2>
+
+                    <div class="description">
+                        <p class="mb-4"><%=user_data.statement%></p><br>
+                    </div>
+                </section>
+                <hr class="hr-style">
+                <% } %>
+                <!--end of profile section-->
+
+
+                <!-- education section -->
+                <% if(user_data.education.length > 0){ %>
+                <section class="container education-section" id="education-id">
+                    <h2 class="new-title"><i class="fa fa-graduation-cap fa-lg"></i>&nbsp;&nbsp;EDUCATION</h2>
+
+                    <% for(var i=0; i<user_data.education.length; i++){ %>
+                        <div class="card education-card">
+                            <div class="card-body">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h3 class="card-title mb-2"><%=user_data.education[i].degree%></h3>
+                                    <p class="dates"><%=user_data.education[i].dates%></p>
+                                </div>
+                                <p class="card-subtitle mb-1 location"><%=user_data.education[i].institute%></p>
+                                <p class="card-text mb-4"><%=user_data.education[i].description%></p>
+                            </div>
+                        </div>
+                        <% } %>
+                </section>
+                <hr class="hr-style">
+                <% } %>
+                <!-- end of experience section -->
+
+                <!-- experience section -->
+                <% if(user_data.experience.length > 0){ %>
+                <section class="container experience-section">
+                    <h2 class="new-title"><i class="fa fa-briefcase fa-lg"></i>&nbsp;&nbsp;EXPERIENCES</h2>
+
+                    <% for(var i=0; i<user_data.experience.length; i++){ %>
+                        <div class="card experience-card">
+                            <div class="card-body">
+                                <div class="d-flex w-100 justify-content-between" style="margin-bottom:0rem;">
+                                    <h3 class="card-title mb-2"><%=user_data.experience[i].work%></h3>
+                                    <p class="dates"><%=user_data.experience[i].dates%></p>
+                                </div>
+                                <p class="card-subtitle mb-1 location"><%=user_data.experience[i].company%></p>
+                                <p class=" mb-4 card-text"><%=user_data.experience[i].description%></p>
+                            </div>
+                        </div>
+                        <% } %>
+                </section>
+                <hr class="hr-style">
+                <% } %>
+                <!-- end of experience section -->
+
+                <!--Project Section 2-->
+                <% if(user_data.projects.length > 0){ %>
+                <section class="container project-section">
+                    <h2 class="new-title"><i class="fa fa-archive fa-lg"></i>&nbsp;&nbsp;PROJECTS</h2>
+
+                    <div class="row" style="width: 100%;">
+                        <% for(var i=0; i<user_data.projects.length; i++){ %>
+                        <div class="col-md-4 pr-0 pl-4 mb-4">
+                            <div class="card card-image" id="project_cards<%=i%>"
+                                 style=" min-height: 200px;">
+                                <div class="d-flex justify-content-center text-white text-center rgba-black-strong py-3 px-4 rounded"
+                                     style=" min-height: 200px;">
+                                    <div class="d-flex flex-column justify-content-around">
+                                        <p class="red-text">
+                                            <i class="fa fa-pie-chart"></i>
+                                            <%=user_data.projects[i].category%>
+                                        </p>
+
+                                        <h6 class="font-weight-bold">
+                                            <%=user_data.projects[i].title%>
+                                        </h6>
+
+                                        <a class="btn btn-sm btn-red btn-rounded btn-md mb-1" data-toggle="modal"
+                                           data-target="#projectModal<%=i%>"><i class="fa fa-clone left"></i> View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal: Project-->
+                        <div class="modal fade" id="projectModal<%=i%>" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+
+                                <!--Content-->
+                                <div class="modal-content">
+
+                                    <!--Body-->
+                                    <div class="modal-body mb-0 p-0">
+
+                                        <div class="modal-thumbnail centered" style="margin:0 auto;">
+                                            <img src="/uploads/projects/<%=user_data.projects[i]['image']%>"
+                                                 width="100%">
+
+                                            <div class="wrapper centered">
+                                                <div class="caption">
+                                                    <p class="p-1"><%=user_data.projects[i].title%></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <p class="centered p-3" style="white-space: pre-line">
+                                                <%=user_data.projects[i].description%>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!--Footer-->
+                                    <div class="modal-footer justify-content-center">
+                                        <% if(user_data.projects[i].youtube.length > 0){ %>
+                                        <a type="button" href="<%=user_data.projects[i].youtube%>" target="_blank"
+                                           class="btn-floating btn-sm btn-yt"><i class="fa fa-youtube"></i></a>
+                                        <% } %>
+                                        <% if(user_data.projects[i].github.length > 0){ %>
+                                        <a type="button" target="_blank" class="btn-floating btn-sm btn-git"><i
+                                                class="fa fa-github"></i></a>
+                                        <% } %>
+                                        <% if(user_data.projects[i].other_link.length > 0){ %>
+                                        <a type="button" target="_blank" class="btn-floating btn-sm btn-ins"><i
+                                                class="fa fa-globe"></i></a>
+                                        <% } %>
+
+                                        <button type="button"
+                                                class="btn btn-outline-danger btn-rounded btn-sm justify-content-end ml-4"
+                                                data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Modal: Project-->
+
+                        <% } %>
+                    </div>
+                </section>
+                <hr class="hr-style">
+                <% } %>
+
+                <!--end of project section 2-->
+
+
+                <!-- achievements section -->
+                <% if(user_data.achievements.length > 0){ %>
+                <section class="container achievement-section">
+                    <h3 class="new-title" style="font-size: 1.15rem"><i class="fa fa-trophy fa-lg"></i>&nbsp;&nbsp;ACHIEVEMENTS & VOLUNTEERING</h3>
+
+                    <% for(var i=0; i<user_data.achievements.length; i++){ %>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3">
+                                <h6><%=user_data.achievements[i].title%></h6>
+                            </div>
+                            <div class="col-sm-12 col-md-9">
+                                <p class="mb-4"><%=user_data.achievements[i].description%></p>
+                            </div>
+                        </div>
+                        <% } %>
+                </section>
+                <% } %>
+                <!-- end of achievements section -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    Developed By SALMAN | visualcv.me/SalmanFazal; 2018 All Rights Reserved
+</footer>
+
+
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(window).bind("load", function() {
+        "<% for(var i=0; i < user_data.projects.length; i++){ %>"
+            console.log("<%= user_data.projects[i]['image'] %>");
+            $('#project_cards<%=i%>').css({ "background-image": "url(/uploads/projects/<%=user_data.projects[i]['image']%>)" });
+        "<%}%>"
+    });
+</script>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/resume.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascripts/mdb.min.js"></script>
+</body>
+
+</html>
+
+

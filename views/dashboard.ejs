@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Required scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Wizard CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-wizard.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/dashboard.css" rel="stylesheet">
+
+    <link rel="icon" href="/images/favicon.png">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+    <div class="container">
+        <a data-scroll class="navbar-brand" href="index.html"><img class="logo" src="/images/logo.png" height="35px"
+                                                                   alt=""></a>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="preview_clicked()" style="cursor: pointer">Preview</a>
+
+                </li>
+                <li class="nav-item">
+                    <a data-scroll class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Top content -->
+<div class="content-wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-sm-10 col-md-8 form-box">
+                <form role="form" action="" method="post" class="f1">
+
+                    <h3>Dashboard</h3>
+                    <h4 class="top-title">FILL IN THE ENTIRE FORM U *****</h4>
+                    <p>Leave blank if you don't want to display any element</p>
+
+                    <!--FORM WIZARD TABS-->
+                    <div class="f1-steps">
+                        <div class="f1-progress">
+                            <div class="f1-progress-line" data-now-value="10" data-number-of-steps="5"
+                                 style="width: 10%;"></div>
+                        </div>
+
+                        <div class="f1-step active">
+                            <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                            <p>User</p>
+                        </div>
+
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fa fa-graduation-cap"></i></div>
+                            <p>Education</p>
+                        </div>
+
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fa fa-briefcase"></i></div>
+                            <p>Experience</p>
+                        </div>
+
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fa fa-tasks"></i></div>
+                            <p>Projects</p>
+                        </div>
+
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fa fa-bars"></i></div>
+                            <p>Other</p>
+                        </div>
+                    </div>
+
+                    <!--FORM CONTENTS-->
+                    <div class="container">
+                        <fieldset>
+                            <div id="user" class="content-container">
+                                <% include dashboard_snippets/user_snippet.ejs %>
+                            </div>
+
+                            <div class="f1-buttons">
+                                <button type="button" id="user-next" class="btn btn-danger btn-next">Next</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div id="education" class="content-container">
+                                <% include dashboard_snippets/education_snippet.ejs %>
+                            </div>
+
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-secondary btn-previous">Previous</button>
+                                <button type="button" class="btn btn-danger btn-next">Next</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div id="experience" class="content-container">
+                                <% include dashboard_snippets/experience_snippet.ejs %>
+                            </div>
+
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-secondary btn-previous">Previous</button>
+                                <button type="button" class="btn btn-danger btn-next">Next</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div id="project" class="content-container">
+                                <% include dashboard_snippets/project_snippet.ejs %>
+                            </div>
+
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-secondary btn-previous">Previous</button>
+                                <button type="button" class="btn btn-danger btn-next">Next</button>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div id="other" class="content-container">
+                                <% include dashboard_snippets/other_snippet.ejs %>
+                            </div>
+
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-secondary btn-previous">Previous</button>
+                                <button type="button" class="btn btn-danger" onclick="preview_clicked()">Complete
+                                </button>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/javascripts/dashboard.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="/javascripts/bootstrap-wizard.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"
+        integrity="sha256-VAvG3sHdS5LqTT+5A/aeq/bZGa/Uj04xKxY8KM/w9EE=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+
+<script src="/javascripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>

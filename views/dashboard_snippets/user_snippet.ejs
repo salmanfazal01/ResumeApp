@@ -1,0 +1,248 @@
+<div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            <section>
+                <h4 class="collapse_section" data-toggle="collapse" data-target="#section1a"><b>Security:</b> &nbsp;
+                    <i class="fa fa-chevron-down"></i></h4>
+                <div id="section1a" class="collapse">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-prepend input-group-text"><i class="fa fa-at"></i></span>
+                            <input type="email" class="form-control" placeholder="Email" name="security_email"
+                                   disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-outline-secondary btn-sm pull-right" data-toggle="modal"
+                                data-target="#password_modal" style="margin-bottom: 15px">Change Password
+                        </button>
+
+                    </div>
+
+                    <form></form>
+
+                    <form role="form" id="user_security_form_link">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-prepend input-group-text"><span class="form-control"
+                                                                      style="padding: 0; margin: 0; border: none; background: none;">
+                                    http://myresumey.com/</span></span>
+                                <input type="text" class="form-control" placeholder="Personal Link" name="security_link"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Save</button>
+                            <p class="pull-right" id="security_saved" style="display:none; color: green">Saved
+                                Successfully!</p>
+                            <p class="pull-right" id="security_exists" style="display:none; color: red">
+                                Link already taken!</p>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+
+
+            <hr>
+
+
+            <section>
+                <h4 class="collapse_section" data-toggle="collapse" data-target="#section1b"><b>Basic Information:</b>
+                    &nbsp;<i class="fa fa-chevron-down"></i></h4>
+                <div id="section1b" class="collapse">
+
+                    <form id="upload_user_image" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <%= typeof msg != 'undefined' ? msg : '' %>
+                            <div class="input-group">
+                                <div class="input-group-prepend input-group-text"><i class="fa fa-image"></i></div>
+                                <input type="file" name="user_image" accept="image/*"/>
+                                <button type="submit" class="btn btn-outline-secondary btn-sm pull-right">Upload
+                                </button>
+                                <p><strong>Supported file types:</strong> .jpg .png <br>
+                                    <Strong>Max file size:</strong> 3 MB (Smaller = faster the resume loads) <br>
+                                    <strong>Recommended size: width: 140px, <= 400kb.</strong></p>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form role="form" id="user_basic_form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-prepend input-group-text"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="First & Last Name"
+                                       name="basic_name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-prepend input-group-text"><i class="fa fa-briefcase"></i></span>
+                                <input type="text" class="form-control" placeholder="Occupation" name="basic_occupation"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Save</button>
+                            <p class="pull-right" id="basic_saved" style="display:none; color: green">Saved
+                                Successfully!</p>
+                            <p class="pull-right" id="basic_error" style="display:none; color: red">Wrong file size or format!</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+
+            <hr>
+
+
+            <section>
+                <h4 class="collapse_section" data-toggle="collapse" data-target="#section1c"><b>Contact and Social:</b>
+                    &nbsp;<i class="fa fa-chevron-down"></i></h4>
+                <div id="section1c" class="collapse">
+                    <h6 style="color: darkgrey; font-weight: 200">(Leave blank if you do not wish to display any)</h6>
+                    <form role="form" id="user_social_form">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-map-marker"></i></span>
+                                        <textarea class="form-control" placeholder="Address" rows="2"
+                                                  name="social_address"><%= user.local.social.address %></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-at"></i></span>
+                                        <input type="text" class="form-control" placeholder="Email" name="social_email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-phone"></i></span>
+                                        <input type="text" class="form-control" placeholder="Phone" name="social_phone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-skype"></i></span>
+                                        <input type="text" class="form-control" placeholder="Skype" name="social_skype">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-globe"></i></span>
+                                        <input type="text" class="form-control" placeholder="Website"
+                                               name="social_website">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-linkedin"></i></span>
+                                        <input type="text" class="form-control" placeholder="LinkedIn"
+                                               name="social_linkedin">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-twitter"></i></span>
+                                        <input type="text" class="form-control" placeholder="Twitter"
+                                               name="social_twitter">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-github"></i></span>
+                                        <input type="text" class="form-control" placeholder="GitHub"
+                                               name="social_github">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-facebook"></i></span>
+                                        <input type="text" class="form-control" placeholder="Facebook"
+                                               name="social_facebook">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Save</button>
+                            <p class="pull-right" id="social_saved" style="display:none; color: green">Saved
+                                Successfully!</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="password_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Change Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form role="form" id="user_security_form_pass">
+                                <div class="input-group">
+                                <span class="form-control alert alert-danger" id="password_wrong_text"
+                                      style="padding: 0px; display: none">Old Password is wrong!</span>
+                                    <span class="form-control alert alert-success" id="password_changed_text"
+                                          style="padding: 0px; display: none">Password changed!</span>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-lock"></i></span>
+                                        <input type="password" class="form-control"
+                                               placeholder="Current Password" name="security_pass" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-lock"></i></span>
+                                        <input type="password" class="form-control" placeholder="New Password"
+                                               maxlength="40" pattern="(?=.*\d)(?=.*[a-z]).{6,}" name="security_newpass"
+                                               oninvalid="this.setCustomValidity('Must contain at least one number and one letter, and at least 6 or more characters')"
+                                               oninput="setCustomValidity('')" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend input-group-text"><i class="fa fa-repeat"></i></span>
+                                        <input type="password" class="form-control"
+                                               placeholder="Repeat New Password" name="security_newpass_confirm"
+                                               required
+                                               onchange="match_registration_passwords()">
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-outline-secondary btn-sm">Update</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

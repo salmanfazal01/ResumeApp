@@ -1,0 +1,161 @@
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h4 class="collapse_section"><b>Projects:</b></h4>
+
+            <table class="table table-hover table-sm" style="width: 100%">
+                <tbody id="project_body">
+                </tbody>
+            </table>
+            <div class="form-group">
+                <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#project_modal"
+                        id="project_add_button">Add
+                </button>
+            </div>
+
+
+            <!-- Project Details Modal -->
+            <div class="modal fade" id="project_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Your Projects</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <form role="form" id="project_form">
+
+                            <div class="modal-body">
+                                <div class="wrapper">
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-prepend input-group-text"><i class="fa fa-hashtag"></i></span>
+                                            <select name="project_id" id="project_id" class="form-control" required>
+                                                <option value="" disabled selected class="form-control">Select order..
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-prepend input-group-text"><i class="fa fa-user"></i></span>
+                                            <input type="text" class="form-control" placeholder="Project Title"
+                                                   name="project_title" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-prepend input-group-text"><i class="fa fa-sitemap"></i></span>
+                                            <input type="text" class="form-control" placeholder="Category"
+                                                   name="project_category" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-prepend input-group-text"><i class="fa fa-info"></i></span>
+                                            <textarea class="form-control" placeholder="Short Description" rows="3"
+                                                      name="project_description" required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- links -->
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-prepend input-group-text"><i class="fa fa-youtube"></i></span>
+                                                    <input type="text" class="form-control" placeholder="YouTube"
+                                                           name="project_youtube_link">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-prepend input-group-text"><i class="fa fa-github"></i></span>
+                                                    <input type="text" class="form-control" placeholder="GitHub"
+                                                           name="project_github_link">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-prepend input-group-text"><i class="fa fa-globe"></i></span>
+                                                    <input type="text" class="form-control" placeholder="Other Link"
+                                                           name="project_other_link">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <p class="pull-left" id="project_saved" style="display:none; color: green">Saved
+                                            Successfully!</p>
+                                        <button type="reset" class="btn btn-outline-secondary btn-sm"
+                                                data-dismiss="modal" onclick="initialize()">
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm"
+                                                id="project_save_button">Save
+                                        </button>
+                                        <button class="btn btn-outline-danger btn-sm" id="project_update_button"
+                                                style="display: none">Update
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project Image Modal -->
+            <div class="modal fade" id="project_image_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header text-center" id="project_modal_header" style="display: block;">
+                            <img src="#" id="display_project_image" class="img-fluid text-center">
+                        </div>
+
+                        <form id="upload_project_image" enctype="multipart/form-data">
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <%= typeof msg != 'undefined' ? msg : '' %>
+                                    <div class="input-group">
+                                        <input class="form-control" type="file" name="project_image" accept="image/*"/>
+                                    </div>
+                                </div>
+                                <p><strong>Supported file types:</strong> .jpg .png .gif <br>
+                                <Strong>Max file size:</strong> 3 MB (Smaller = faster the resume loads) <br>
+                                <strong>Recommended size: width: 800px <= 800kb.</strong></p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="pull-left" id="project_image_saved" style="display:none; color: green">Saved
+                                    Successfully!</p>
+                                <p class="pull-left" id="project_image_loading" style="display:none; color: green">Uploading...</p>
+                                <p class="pull-left" id="project_image_error" style="display:none; color: green">Wrong file size or format!</p>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Save changes</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

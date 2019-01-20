@@ -1,0 +1,79 @@
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h4 class="collapse_section"><b>Education:</b></h4>
+
+            <table class="table table-hover table-sm" style="width: 100%">
+                <tbody id="education_body">
+                </tbody>
+            </table>
+            <div class="form-group">
+                <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#education_modal" id="education_add_button">Add
+                </button>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="education_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Your Education</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <form role="form" id="education_form">
+
+                            <div class="modal-body">
+                                <div class="wrapper">
+                                    <div>
+                                        <div class="form-group">
+                                            <select name="education_id" id="education_id" class="form-control" required>
+                                                <option value="" disabled selected class="form-control">Select order..</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name of Degree"
+                                                   name="education_degree">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Institute Name"
+                                                   name="education_institute">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Dates From - To"
+                                                   name="education_dates">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="statement_input"
+                                                      maxlength="600" rows="4" placeholder="Brief Description"
+                                                      name="education_description">
+
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <p class="pull-left" id="education_saved" style="display:none; color: green">Saved Successfully!</p>
+                                <button type="reset" class="btn btn-outline-secondary btn-sm" data-dismiss="modal" onclick="initialize()">
+                                    Close
+                                </button>
+                                <button type="submit" class="btn btn-outline-danger btn-sm" id="education_save_button">Save</button>
+                                <button class="btn btn-outline-danger btn-sm" id="education_update_button" style="display: none">Update</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

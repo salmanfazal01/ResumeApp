@@ -1,0 +1,250 @@
+@import 'http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900';
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(60, 60, 60);
+    line-height: 30px;
+    text-align: center;
+    background: white;
+}
+
+
+
+strong {
+    font-weight: 500;
+}
+
+/*Back to top button*/
+#topButton{
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    cursor: pointer;
+}
+
+/*NAVBAR*/
+#navbar {
+    background: tranparent;
+}
+
+#navbar .logo {
+}
+
+/*TOP IMAGE*/
+
+.cover-image {
+    background: url('/images/background.jpg') no-repeat center center scroll;
+    background-attachment: fixed;
+    height: 100%;
+    min-height: 650px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    color: white;
+    border-bottom: 1px solid #5a5a5a;
+}
+
+.cover-image .overlay {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 500px) {
+    .overlay {
+        padding: 18rem 0;
+    }
+}
+
+@media (max-width: 499px) {
+    .overlay {
+        padding: 10rem 0;
+    }
+}
+
+@media (max-width: 409px) {
+    .overlay {
+        padding: 8rem 0;
+    }
+}
+
+
+.cover-items .title {
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+.cover-items .description {
+    margin: 20px 0 10px 0;
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+
+.cover-items .buttons {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.cover-items .buttons :hover {
+    cursor: pointer;
+}
+
+
+/*Features Section*/
+
+.features-full-wrapper {
+    background-image: url(/images/homepage_section1.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.features-section {
+    margin: 0px auto;
+    width: 100%;
+    min-width: 320px;
+    padding: 80px 5%;
+    background-color: rgba(247, 99, 97, 0.97);
+}
+
+.features-section i {
+    font-size: 4rem;
+    padding-bottom: 10px;
+}
+
+.features-section .features-item {
+    padding: 0px 40px;
+}
+
+
+/*Details Section*/
+
+.details-full-wrapper {
+    background-color: #f1f4f5;
+    min-height: 500px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+
+/*Accounts Section*/
+
+.accounts-background {
+    background-image: url(/images/homepage_section2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.accounts-full-wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #e3e3e3;
+    padding: 60px 0 60px 0;
+}
+
+.accounts-full-wrapper .accounts-title {
+    padding-bottom: 20px;
+}
+
+.forms-wrapper {
+    margin: auto;
+    display: block;
+    background: blue;
+
+}
+
+.form-container .form-header {
+    overflow: hidden;
+    padding: 20px 35px 0px 35px;
+    background: #f3f3f3;
+    text-align: left;
+}
+
+
+.form-container .form-header i {
+    font-size: 4rem;
+}
+
+.form-container .form-body {
+    padding: 25px 35px 30px 35px;
+    background: #eee;
+}
+
+.form-container button {
+    width: 100%;
+}
+
+.form-container button:hover {
+    cursor: pointer
+}
+
+@media (min-width: 768px) {
+    .border1 {
+        min-height: 300px;
+        border-right: 1px solid rgba(247, 99, 97, 0.97);
+    }
+}
+
+#registration_message {
+    padding: 5px 0px 0px 0px;
+    margin: 0px;
+}
+
+.form-container .facebook-login h6{
+    padding: 20px 0px 10px 0px;
+}
+.form-container .facebook-login a{
+    background-color: #3b5998;
+    width: 50%;
+}
+.form-container .facebook-login a:hover{
+    background-color: #4c75cb;
+    width: 50%;
+}
+
+/*Developer Section*/
+.developer-background {
+    background-image: url(/images/homepage_section3.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.developer-full-wrapper {
+    background-color: rgba(0,0,0,0.8);
+    border-bottom: 1px solid #4c4c4c;
+    padding: 90px 0 90px 0;
+    min-height: 300px;
+    color: #e3e3e3;
+}
+
+
+/*Contact Section*/
+.contact-wrapper {
+    background-color: rgb(247, 99, 97);
+    padding: 80px 0 60px 0;
+    min-height: 300px;
+    color: white;
+    text-align: left;
+
+}
+
+.contact-wrapper i{
+    color: white; letter-spacing: 40px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+

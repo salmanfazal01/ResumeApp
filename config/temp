@@ -1,0 +1,34 @@
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
+
+var userSchema = mongoose.Schema({
+    user: {
+        email: String,          //login id
+        password: String,       //encrypted password
+        init: {
+            btc_balance: String, //initial balances
+            usd_balance: String
+        },
+        trades: {               //details to store per trade
+            date: String,       //trade date
+            exchange: String,   //exchange?
+            coin: String,       //coin?
+            position: String,   // long/short
+            entry: String,      // usd/btc?
+            exit: String,       // usd/btc?
+            reason: String      // reason for trade?
+        },
+        holdings: {
+            btc: String,
+            usd: String
+        },
+        track: [                //data to plot graphs
+            {
+                date: String,
+                daily_btc_balance: String,
+                daily_usd_balance: String
+            }
+        ]
+
+    }
+});

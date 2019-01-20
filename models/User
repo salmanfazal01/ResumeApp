@@ -1,0 +1,87 @@
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
+
+// define the schema for our user model
+var userSchema = mongoose.Schema({
+
+    local: {
+        email: String,
+        password: String,
+        link: String,
+
+        basic: {
+            user_image: String,
+            name: String,
+            occupation: String
+        },
+        social: {
+            address: String,
+            email: String,
+            phone: String,
+            skype: String,
+            github: String,
+            facebook: String,
+            website: String,
+            linkedin: String,
+            twitter: String
+        },
+        education: [{
+            id: String,
+            degree: String,
+            institute: String,
+            dates: String,
+            description: String
+        }],
+        experience: [{
+            id: String,
+            work: String,
+            company: String,
+            dates: String,
+            description: String
+        }],
+        projects: [{
+            id: String,
+            image: String,
+            title: String,
+            category: String,
+            description: String,
+            youtube: String,
+            github: String,
+            other_link: String
+        }],
+        statement: String,
+        achievements: [{
+            id: String,
+            title: String,
+            description: String
+        }],
+        technical: [{
+            id: String,
+            title: String,
+            percentage: String
+        }],
+        qualities: [{
+            id: String,
+            title: String,
+            percentage: String
+        }],
+        languages: [{
+            id: String,
+            title: String,
+            percentage: String
+        }]
+    }
+});
+
+// generating a hash
+userSchema.methods.generateHash = function (password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// checking if password is valid
+userSchema.methods.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
+
+// create the model for users and expose it to our app
+module.exports = mongoose.model('User', userSchema);

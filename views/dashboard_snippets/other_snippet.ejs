@@ -1,0 +1,180 @@
+<div>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <section>
+                <h4 class="collapse_section" data-toggle="collapse" data-target="#section5a"><b>Personal Statament:</b>
+                    &nbsp;
+                    <i class="fa fa-chevron-down"></i>
+                </h4>
+                <div id="section5a" class="collapse">
+                    <form role="form" id="statement_form">
+                        <div class="form-group">
+                            <textarea class="form-control" name="statement_input" id="statement_textarea_input"
+                                      onkeyup="count_statement_chars()" maxlength="1500" cols="4" rows="7">
+                            </textarea>
+                        </div>
+                        <div class=" w-100 justify-content-between form-group">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Save</button>
+                            <p id="statement_saved" style="display:none; color: green">Saved Successfully!</p>
+                            <p class="word-count pull-right" id="statement_char_remaining" style="color: #97AAC3;">1500
+                                Characters remaining</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+
+            <hr>
+
+            <!--Achievements-->
+            <section>
+                <h4 class="collapse_section" data-toggle="collapse" data-target="#section5b"><b>Achievements:</b> &nbsp;<i
+                        class="fa fa-chevron-down"></i></h4>
+                <div id="section5b" class="collapse">
+                    <form role="form" id="achievements_form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-prepend input-group-text"><i class="fa fa-hashtag"></i></span>
+                                <select name="achievement_id" id="achievement_id" class="form-control" required>
+                                    <option value="" disabled selected class="form-control">Select order..</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-prepend input-group-text"><i class="fa fa-at"></i></span>
+                                <input type="text" class="form-control" placeholder="Title" name="achievement_title"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-prepend input-group-text"><i class="fa fa-info"></i></span>
+                                <textarea class="form-control" placeholder="Description" rows="3"
+                                          name="achievement_description" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-outline-danger btn-sm" id="achievement_add_button">
+                                    Add
+                                </button>
+                                <p class="pull-right" id="achievement_saved" style="display:none; color: green">Saved
+                                    Successfully!</p>
+                                <button type="button" class="btn btn-outline-danger btn-sm pull-right"
+                                        id="achievement_cancel_button"
+                                        style="display: none">Cancel
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm pull-right"
+                                        id="achievement_update_button"
+                                        style="display: none">Update
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-hover table-sm" style="width: 100%">
+                        <tbody id="achievements_body">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <hr>
+
+            <section>
+                <h4 class="collapse_section" data-toggle="collapse" data-target="#section5c"><b>Skills:</b> &nbsp;<i
+                        class="fa fa-chevron-down"></i></h4>
+                <div id="section5c" class="collapse">
+
+                    <!--Skills-->
+                    <h6><b>Technical Skills:</b></h6>
+                    <table class="table table-hover table-sm" style="width: 100%">
+                        <tbody id="technical_body"></tbody>
+                    </table>
+                    <form role="form" id="technical_form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select name="technical_id" id="technical_id" class="form-control" required>
+                                    <option value="" disabled selected class="form-control">Select order..</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="Title" name="technical_title"
+                                       required>
+                                <input type="number" class="form-control" placeholder="Percentage"
+                                       name="technical_percentage" required>
+                                <button class="btn btn-outline-primary btn-sm" id="technical_save_button">Add</button>
+                                <button class="btn btn-outline-secondary btn-sm" id="technical_update_button"
+                                        style="display: none" type="button">Update
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm" id="technical_cancel_button"
+                                        style="display: none" type="button">Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <br>
+
+                    <!--Qualities-->
+                    <h6><b>Personal Qualities:</b></h6>
+                    <table class="table table-hover table-sm" style="width: 100%">
+                        <tbody id="qualities_body"></tbody>
+                    </table>
+                    <form role="form" id="qualities_form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select name="qualities_id" id="qualities_id" class="form-control" required>
+                                    <option value="" disabled selected class="form-control">Select order..</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="Title" name="qualities_title"
+                                       required>
+                                <input type="number" class="form-control" placeholder="Percentage"
+                                       name="qualities_percentage" required>
+                                <button class="btn btn-outline-primary btn-sm" id="qualities_save_button">Add</button>
+                                <button class="btn btn-outline-secondary btn-sm" id="qualities_update_button"
+                                        style="display: none" type="button">Update
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm" id="qualities_cancel_button"
+                                        style="display: none" type="button">Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <br>
+
+                    <!--Languages-->
+                    <h6><b>Languages:</b></h6>
+                    <table class="table table-hover table-sm" style="width: 100%">
+                        <tbody id="languages_body"></tbody>
+                    </table>
+                    <form role="form" id="languages_form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select name="languages_id" id="languages_id" class="form-control" required>
+                                    <option value="" disabled selected class="form-control">Select order..</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="Title" name="languages_title"
+                                       required>
+                                <input type="number" class="form-control" placeholder="Percentage"
+                                       name="languages_percentage" required>
+                                <button class="btn btn-outline-primary btn-sm" id="languages_save_button">Add</button>
+                                <button class="btn btn-outline-secondary btn-sm" id="languages_update_button"
+                                        style="display: none" type="button">Update
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm" id="languages_cancel_button"
+                                        style="display: none" type="button">Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+
+        </div>
+
+
+    </div>
+</div>
